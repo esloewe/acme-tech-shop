@@ -1,33 +1,57 @@
 import React from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import { catalog, getArticle } from "./actions";
 import "./styles/catalog.css";
 
-export default class Catalog extends React.Component {
+class Catalog extends React.Component {
     constructor() {
         super();
         this.state = {};
+
+        this.renderCatalog = this.renderCatalog.bind(this);
     }
 
     componentDidMount() {
-        axios.get(`http://challenge.monoqi.net/catalog`).then(resp => {
-            const articles = resp.data.articles.map(article => (
+        this.props.dispatch(catalog());
+    }
+
+    renderCatalog() {
+        if (!this.props.catalog) {
+            return null;
+        }
+        return this.props.catalog.map(article => {
+            return (
                 <div key={article.sku} className="cat-article-container">
-                    <img src={article.image} alt="" />
+                    <img
+                        onClick={() =>
+                            this.props.dispatch(getArticle(article.sku))
+                        }
+                        src={article.image}
+                        alt=""
+                    />
                     <h2 id="cat-article-name">{article.name}</h2>
                     <span id="cat-article-price">
-                        {article.price.currency} {article.price.amount}
+                        {article.price.currency} {article.price.amount}{" "}
+                        {article.sku}
                     </span>
+                    <button> add to cart </button>
                 </div>
-            ));
-            this.setState({ articles });
+            );
         });
     }
 
     render() {
         return (
             <div>
-                <div className="container-catalog">{this.state.articles}</div>
+                <div className="container-catalog">{this.renderCatalog()}</div>
             </div>
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        catalog: state.catalog
+    };
+}
+export default connect(mapStateToProps)(Catalog);

@@ -1,11 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
+import { getArticle } from "./actions";
+import axios from "axios";
 
-export default class Article extends React.Component {
+class Article extends React.Component {
     constructor() {
         super();
         this.state = {};
-
-        // this.renderProductList = this.renderProductList.bind(this);
     }
 
     render() {
@@ -16,3 +17,11 @@ export default class Article extends React.Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    console.log("mapstatetoprops article", state, state.article);
+    return {
+        article: state.article
+    };
+}
+export default connect(mapStateToProps)(Article);
