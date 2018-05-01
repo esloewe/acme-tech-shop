@@ -2,7 +2,7 @@
     display: grid;
     margin: 100px;
     grid-gap: 50px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
     justify-items: center;
     padding: 10px;
 }
@@ -10,4 +10,36 @@
 .cat-article-container {
     border: 1px solid #ededed;
     padding: 20px;
+}
+
+.cat-article-container:hover {
+    -webkit-box-shadow: 2px 11px 14px -3px rgba(166, 166, 166, 0.78);
+    -moz-box-shadow: 2px 11px 14px -3px rgba(166, 166, 166, 0.78);
+    box-shadow: 2px 11px 14px -3px rgba(166, 166, 166, 0.78);
+}
+
+.cat-article-container img {
+    width: 300px;
+    height: auto 0;
+}
+
+.cat-article-container button {
+    float: right;
+    margin-bottom: 25px;
+}
+.cat-article-price-container {
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: -30px;
+}
+.cat-article-currency {
+    font-weight: bold;
+}
+
+/* for mobile & tablet ___________________________________________________ */
+@media screen and (max-width: 1000px) {
+    .container-catalog {
+        margin: 0px;
+        overflow-x: hidden;
+    }
 }

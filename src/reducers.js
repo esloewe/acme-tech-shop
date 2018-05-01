@@ -7,10 +7,10 @@ export default function reducer(state = {}, action) {
     }
 
     if (action.type === "ARTICLE") {
-        console.log("state.catalog article", action.article);
+        console.log("state.catalog article", action.getArticle);
         state = {
             ...state,
-            article: action.article
+            getArticle: action.getArticle
         };
     }
     return state;

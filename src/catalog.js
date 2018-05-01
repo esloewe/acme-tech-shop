@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { catalog, getArticle } from "./actions";
 import "./styles/catalog.css";
 
@@ -22,18 +23,25 @@ class Catalog extends React.Component {
         return this.props.catalog.map(article => {
             return (
                 <div key={article.sku} className="cat-article-container">
-                    <img
-                        onClick={() =>
-                            this.props.dispatch(getArticle(article.sku))
-                        }
-                        src={article.image}
-                        alt=""
-                    />
+                    <Link to="/article">
+                        <img
+                            onClick={() =>
+                                this.props.dispatch(getArticle(article.sku))
+                            }
+                            src={article.image}
+                            alt=""
+                        />
+                    </Link>
                     <h2 id="cat-article-name">{article.name}</h2>
-                    <span id="cat-article-price">
-                        {article.price.currency} {article.price.amount}{" "}
-                        {article.sku}
-                    </span>
+                    <div className="cat-article-price-container">
+                        <span className="cat-article-currency">
+                            {article.price.currency}{" "}
+                        </span>
+                        <span className="cat-article-price">
+                            {article.price.amount}
+                        </span>
+                    </div>
+
                     <button> add to cart </button>
                 </div>
             );

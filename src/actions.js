@@ -16,7 +16,7 @@ export function getArticle(sku) {
             console.log("resp", resp);
             return {
                 type: "ARTICLE",
-                article: resp.data
+                getArticle: resp.data
             };
         });
 }
