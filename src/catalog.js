@@ -1,19 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { catalog, getArticle } from "./actions";
+import { catalog, getArticle, addToCart } from "./actions";
 import "./styles/catalog.css";
+import Article from "./article";
 
 class Catalog extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {};
 
         this.renderCatalog = this.renderCatalog.bind(this);
+        this.handleCartUpdate = this.handleCartUpdate.bind(this);
     }
 
     componentDidMount() {
         this.props.dispatch(catalog());
+    }
+
+    handleCartUpdate() {
+        console.log(
+            "testing catalog click",
+            this.props.getArticle,
+            this.props.quantity
+        );
+        //  not working as i am dispatching after the click ... have to get item from catalog
+        this.props.dispatch(addToCart(this.props.article, this.props.quantity));
     }
 
     renderCatalog() {
@@ -42,7 +54,10 @@ class Catalog extends React.Component {
                         </span>
                     </div>
 
-                    <button> add to cart </button>
+                    <button onClick={this.handleCartUpdate()}>
+                        {" "}
+                        add to cart{" "}
+                    </button>
                 </div>
             );
         });
@@ -59,7 +74,8 @@ class Catalog extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        catalog: state.catalog
+        catalog: state.catalog,
+        getArticle: state.getArticle
     };
 }
 export default connect(mapStateToProps)(Catalog);

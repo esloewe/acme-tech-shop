@@ -7,11 +7,26 @@ export default function reducer(state = {}, action) {
     }
 
     if (action.type === "ARTICLE") {
-        console.log("state.catalog article", action.getArticle);
         state = {
             ...state,
             getArticle: action.getArticle
         };
     }
+
+    if (action.type === "ADD_TO_CART") {
+        state = {
+            ...state,
+            itemsCart: action.itemsCart
+        };
+        console.log("reducers addtocart", action.itemsCart);
+    }
+
+    // if (action.type === "CART") {
+    //     state = {
+    //         ...state,
+    //         cart
+    //     };
+    // }
+
     return state;
 }

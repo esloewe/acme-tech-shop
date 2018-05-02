@@ -1,12 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getArticle } from "./actions";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import { getArticle, addToCart } from "./actions";
 import "./styles/article.css";
+import { article } from "./article";
 
 class Article extends React.Component {
     constructor() {
         super();
+        this.state = {
+            quantity: 1
+        };
+        this.handleCartUpdate = this.handleCartUpdate.bind(this);
+        this.handleQty = this.handleQty.bind(this);
+    }
+
+    handleCartUpdate() {
+        this.props.dispatch(
+            addToCart(this.props.getArticle, this.state.quantity)
+        );
+    }
+
+    handleQty(e) {
+        this.setState({ quantity: e.target.value });
     }
 
     renderArticle() {
@@ -31,7 +47,23 @@ class Article extends React.Component {
                             {this.props.getArticle.price.amount}
                         </span>
                     </span>
-                    <button> add to cart </button>
+                    <span id="qty">Qty:</span>
+                    <input
+                        id="qty-input"
+                        onChange={this.handleQty}
+                        className="cart-quantity"
+                        type="number"
+                        name="quantity"
+                        value={this.state.quantity}
+                        min="1"
+                        max="10"
+                    />
+                    <Link to="/cart">
+                        <button onClick={this.handleCartUpdate()}>
+                            {" "}
+                            add to cart{" "}
+                        </button>
+                    </Link>
                 </div>
             </div>
         );
@@ -43,7 +75,6 @@ class Article extends React.Component {
 }
 
 function mapStateToProps(state) {
-    console.log("mapstatetoprops article", state.getArticle);
     return {
         getArticle: state.getArticle
     };
