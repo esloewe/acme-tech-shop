@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { catalog, getArticle, addToCart } from "./actions";
+import { catalog, getArticle } from "./actions";
 import "./styles/catalog.css";
 import Article from "./article";
 
@@ -11,21 +11,10 @@ class Catalog extends React.Component {
         this.state = {};
 
         this.renderCatalog = this.renderCatalog.bind(this);
-        this.handleCartUpdate = this.handleCartUpdate.bind(this);
     }
 
     componentDidMount() {
         this.props.dispatch(catalog());
-    }
-
-    handleCartUpdate() {
-        console.log(
-            "testing catalog click",
-            this.props.getArticle,
-            this.props.quantity
-        );
-        //  not working as i am dispatching after the click ... have to get item from catalog
-        this.props.dispatch(addToCart(this.props.article, this.props.quantity));
     }
 
     renderCatalog() {
@@ -54,10 +43,7 @@ class Catalog extends React.Component {
                         </span>
                     </div>
 
-                    <button onClick={this.handleCartUpdate()}>
-                        {" "}
-                        add to cart{" "}
-                    </button>
+                    <button> add to cart </button>
                 </div>
             );
         });

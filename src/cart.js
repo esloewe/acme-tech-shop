@@ -18,16 +18,17 @@ class Cart extends React.Component {
     renderItemsCart() {
         if (!this.props.itemsCart) {
             return null;
+        } else {
+            return this.props.itemsCart.map(item => {
+                return (
+                    <div>
+                        <h1>{item.article.name}</h1>
+                        <img src={item.article.image} />
+                        <span>{item.quantity}</span>
+                    </div>
+                );
+            });
         }
-        return this.props.itemsCart.map(item => {
-            return (
-                <div key={item.article.sku}>
-                    <h1>{item.article.name}</h1>
-                    <img src={item.article.image} />
-                    <span>{item.quantity}</span>
-                </div>
-            );
-        });
     }
 
     render() {

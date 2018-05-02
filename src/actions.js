@@ -35,16 +35,17 @@ export function addToCart(article, quantity) {
             quantity
         }
     ];
-    console.log("actions add to cart", article, quantity);
+    console.log("itemscart", itemsCart);
+
     return {
         type: "ADD_TO_CART",
         itemsCart
     };
 }
 
-// export function cart(sku, quantity) {
+// export function cart() {
 //     return axios
-//         .get(`http://challenge.monoqi.net/cart${(sku, quantity)}`)
+//         .get(`http://challenge.monoqi.net/cart`)
 //         .then(resp => {
 //             return {
 //                 type: "CART",

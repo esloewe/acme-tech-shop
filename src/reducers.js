@@ -1,4 +1,6 @@
-export default function reducer(state = {}, action) {
+let initialState = JSON.parse(localStorage.getItem("state"));
+
+export default function reducer(state = initialState || {}, action) {
     if (action.type === "CATALOG") {
         state = {
             ...state,
@@ -13,20 +15,27 @@ export default function reducer(state = {}, action) {
         };
     }
 
-    if (action.type === "ADD_TO_CART") {
-        state = {
-            ...state,
-            itemsCart: action.itemsCart
-        };
-        console.log("reducers addtocart", action.itemsCart);
+    if (action.type == "ADD_TO_CART") {
+        console.log("itemscarttttt reddd", action.itemsCart);
+        if (!state.itemsCart) {
+            state = {
+                ...state,
+                itemsCart: action.itemsCart
+            };
+        } else {
+            console.log("a string else");
+            itemsCart: state.itemsCart.filter(item => {
+                item.article.sku != action.itemsCart[0].article.sku;
+            });
+
+            state = {
+                ...state,
+                itemsCart: state.itemsCart.concat(action.itemsCart)
+            };
+        }
     }
 
-    // if (action.type === "CART") {
-    //     state = {
-    //         ...state,
-    //         cart
-    //     };
-    // }
+    localStorage.setItem("state", JSON.stringify(state));
 
     return state;
 }
