@@ -42,16 +42,16 @@ export function addToCart(article, quantity) {
     };
 }
 
-export function getCart() {
-    return axios
-        .get(`http://challenge.monoqi.net/cart`)
-        .then(resp => {
-            return {
-                type: "GET_CART",
-                getCart: resp.data
-            };
-        })
-        .catch(error => {
-            error;
-        });
-}
+// export function getCart() {
+//     return axios
+//         .get(`http://challenge.monoqi.net/cart`)
+//         .then(resp => {
+//             return {
+//                 type: "GET_CART",
+//                 getCart: resp.data
+//             };
+//         })
+//         .catch(error => {
+//             error;
+//         });
+// }

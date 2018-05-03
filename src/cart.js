@@ -8,12 +8,7 @@ class Cart extends React.Component {
         this.state = {};
     }
 
-    componentDidMount() {
-        // let dataToCart = this.props.itemsCart.map(i => {
-        //     return i.article.sku, i.quantity;
-        // });
-        // this.props.dispatch(cart(this.props.itemsCart));
-    }
+    componentDidMount() {}
 
     renderItemsCart() {
         if (!this.props.itemsCart) {
@@ -21,7 +16,7 @@ class Cart extends React.Component {
         } else {
             return this.props.itemsCart.map(item => {
                 return (
-                    <div>
+                    <div key={item.sku} className="cart-items-container">
                         <h1>{item.article.name}</h1>
                         <img src={item.article.image} />
                         <span>{item.quantity}</span>
@@ -37,7 +32,6 @@ class Cart extends React.Component {
 }
 
 function mapStateToProps(state) {
-    console.log("cart mapstateprops", state.itemsCart);
     return {
         itemsCart: state.itemsCart
     };

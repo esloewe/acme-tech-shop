@@ -59,7 +59,7 @@ class Article extends React.Component {
                         max="10"
                     />
                     <Link to="/cart">
-                        <button onClick={this.handleCartUpdate()}>
+                        <button onClick={this.handleCartUpdate}>
                             {" "}
                             add to cart{" "}
                         </button>

@@ -8,6 +8,7 @@ import reduxPromise from "redux-promise";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
+import logger from "redux-logger";
 const store = createStore(
     reducer,
     composeWithDevTools(applyMiddleware(reduxPromise))

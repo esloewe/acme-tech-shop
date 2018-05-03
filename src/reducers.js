@@ -30,24 +30,6 @@ export default function reducer(state = initialState || {}, action) {
     }
 
     if (action.type === "GET_CART") {
-        let cartUpdated;
-        if (state.itemsCart.length >= 1) {
-            console.log("if in getCart");
-            cartUpdated = state.itemsCart.filter(item => {
-                item.sku, item.quantity;
-            });
-            state = {
-                ...state,
-                getCart: action.getCart.concat(cartUpdated)
-            };
-        } else {
-            console.log("else in getCart");
-            state = {
-                ...state,
-                getCart: action.getCart
-            };
-        }
-        console.log("cartUpdated", cartUpdated, action.getCart);
     }
 
     localStorage.setItem("state", JSON.stringify(state));
