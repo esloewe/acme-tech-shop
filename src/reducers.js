@@ -15,24 +15,39 @@ export default function reducer(state = initialState || {}, action) {
         };
     }
 
-    if (action.type == "ADD_TO_CART") {
-        console.log("itemscarttttt reddd", action.itemsCart);
+    if (action.type === "ADD_TO_CART") {
         if (!state.itemsCart) {
             state = {
                 ...state,
                 itemsCart: action.itemsCart
             };
         } else {
-            console.log("a string else");
-            itemsCart: state.itemsCart.filter(item => {
-                item.article.sku != action.itemsCart[0].article.sku;
-            });
-
             state = {
                 ...state,
                 itemsCart: state.itemsCart.concat(action.itemsCart)
             };
         }
+    }
+
+    if (action.type === "GET_CART") {
+        let cartUpdated;
+        if (state.itemsCart.length >= 1) {
+            console.log("if in getCart");
+            cartUpdated = state.itemsCart.filter(item => {
+                item.sku, item.quantity;
+            });
+            state = {
+                ...state,
+                getCart: action.getCart.concat(cartUpdated)
+            };
+        } else {
+            console.log("else in getCart");
+            state = {
+                ...state,
+                getCart: action.getCart
+            };
+        }
+        console.log("cartUpdated", cartUpdated, action.getCart);
     }
 
     localStorage.setItem("state", JSON.stringify(state));

@@ -35,7 +35,6 @@ export function addToCart(article, quantity) {
             quantity
         }
     ];
-    console.log("itemscart", itemsCart);
 
     return {
         type: "ADD_TO_CART",
@@ -43,31 +42,16 @@ export function addToCart(article, quantity) {
     };
 }
 
-// export function cart() {
-//     return axios
-//         .get(`http://challenge.monoqi.net/cart`)
-//         .then(resp => {
-//             return {
-//                 type: "CART",
-//                 cart: resp.data
-//             };
-//         })
-//         .catch(error => {
-//             error;
-//         });
-// }
-
-// export function finalCart(sku, quantity) {
-//     // lines: [
-//     //     {
-//     //         sku: "",
-//     //         quantity: 1
-//     //     }
-//     // ];
-//
-//     return axios.put(`http://challenge.monoqi.net/cart/`).then(() => {
-//         return {
-//             type: "FINAL_CART"
-//         };
-//     });
-// }
+export function getCart() {
+    return axios
+        .get(`http://challenge.monoqi.net/cart`)
+        .then(resp => {
+            return {
+                type: "GET_CART",
+                getCart: resp.data
+            };
+        })
+        .catch(error => {
+            error;
+        });
+}

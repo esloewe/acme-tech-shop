@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { getArticle, addToCart } from "./actions";
+import { getArticle, addToCart, getCart, newCart } from "./actions";
 import "./styles/article.css";
 import { article } from "./article";
 
