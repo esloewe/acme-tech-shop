@@ -1,10 +1,11 @@
 # acme-tech-shop
 
-The following technologies were used to built this app => **_react.js and redux_**. This repo has redux devTools enabled so you can follow the state of the app in your browser by having this chrome extension https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
-I've also integrated redux-logger which does a similar process in the browser console.
+The following technologies were used to built this app => `react.js` and `redux`. This repo has redux devTools enabled so you can follow the state of the app in your browser by having [this](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) chrome extension.
+
+I've also integrated _redux-logger_ which does a similar process in the browser console.
 This application was built with `create-react-app`.
 
-##How to use this repo
+## How to use this repo
 
 You will need to clone this repo or download it to your computer.
 
