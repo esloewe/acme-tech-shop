@@ -17,6 +17,15 @@
     margin-top: 20px;
 }
 
+#qty {
+    margin-left: 10px;
+}
+
+#qty-input {
+    margin-left: 10px;
+    margin-right: 30px;
+}
+
 /* for mobile responsiveness ___________________________________________________ */
 @media screen and (max-width: 1000px) {
     .article-container {
