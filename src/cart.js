@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeFromCart, finalCart } from "./actions";
+import { removeFromCart, finalCart, getCart } from "./actions";
 import "./styles/cart.css";
 
 class Cart extends React.Component {
@@ -9,6 +9,10 @@ class Cart extends React.Component {
         this.state = {};
 
         this.dispatchFinalCart = this.dispatchFinalCart.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.dispatch(getCart());
     }
 
     dispatchFinalCart() {

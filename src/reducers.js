@@ -38,16 +38,19 @@ export default function reducer(state = initialState || {}, action) {
         };
     }
 
-    if (action.type === "FINAL_CART") {
-        const lines = [
-            {
-                sku: action.sku,
-                quantity: action.quantity
-            }
-        ];
+    if (action.type === "GET_CART") {
+        console.log("updatecart", action.updateCart);
         state = {
             ...state,
-            finalCart: action.finalCart.concat(lines)
+            getCart: action.getCart
+        };
+    }
+
+    if (action.type === "FINAL_CART") {
+        console.log("action final cart in reducer", action.finalCart);
+        state = {
+            ...state,
+            finalCart: state.updateCart.concat(action.finalCart)
         };
     }
 
