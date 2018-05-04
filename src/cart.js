@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { cart } from "./actions";
+import { removeFromCart } from "./actions";
+import "./styles/cart.css";
 
 class Cart extends React.Component {
     constructor() {
@@ -14,12 +15,33 @@ class Cart extends React.Component {
         if (!this.props.itemsCart) {
             return null;
         } else {
-            return this.props.itemsCart.map(item => {
+            return this.props.itemsCart.map((item, i) => {
                 return (
-                    <div key={item.sku} className="cart-items-container">
-                        <h1>{item.article.name}</h1>
-                        <img src={item.article.image} />
-                        <span>{item.quantity}</span>
+                    <div className="cart-items-container" key={i}>
+                        <img
+                            className="cart-image"
+                            src={item.article.image}
+                            alt=""
+                        />
+                        <h1 className="cart-name">{item.article.name}</h1>
+                        <span className="cart-price">
+                            {item.article.price.currency}
+                            {"  "}
+                            {item.article.price.amount}
+                        </span>
+                        <span className="cart-qty">
+                            Qty:{"  "}
+                            {item.quantity}
+                        </span>
+                        <button
+                            onClick={() =>
+                                this.props.dispatch(
+                                    removeFromCart(item.article.sku)
+                                )
+                            }
+                        >
+                            remove item
+                        </button>
                     </div>
                 );
             });
@@ -27,7 +49,43 @@ class Cart extends React.Component {
     }
 
     render() {
-        return <div>{this.renderItemsCart()}</div>;
+        let total = 0;
+
+        return (
+            <div className="cart-page-container">
+                <div>{this.renderItemsCart()}</div>
+                <div className="renderer-container-shopping-cart">
+                    <div className="total-shopping-cart-container">
+                        <h2 className="header-title-shopping-cart">Total</h2>
+
+                        <div className="sub-total">
+                            <div className="middle-text-payment">
+                                Sub-total {total}
+                            </div>
+                            <div className="right-side-text-payment" />
+                        </div>
+                        <div className="sub-total">
+                            <div className="middle-text-payment">Delivery</div>
+                            <div className="right-side-text-payment">free</div>
+                        </div>
+                        <div className="final-total">
+                            <div className="middle-text-payment total">
+                                Total {total}
+                            </div>{" "}
+                            <div className="right-side-text-payment total-amount">
+                                {" "}
+                            </div>
+                        </div>
+                        <div />
+                        <div className="container-button">
+                            <button className="buy-now-button">
+                                Go to Checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 

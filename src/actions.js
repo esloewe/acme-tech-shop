@@ -42,6 +42,13 @@ export function addToCart(article, quantity) {
     };
 }
 
+export function removeFromCart(sku) {
+    return {
+        type: "REMOVE_FROM_CART",
+        sku
+    };
+}
+
 // export function getCart() {
 //     return axios
 //         .get(`http://challenge.monoqi.net/cart`)

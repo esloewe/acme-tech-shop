@@ -29,6 +29,15 @@ export default function reducer(state = initialState || {}, action) {
         }
     }
 
+    if (action.type === "REMOVE_FROM_CART") {
+        state = {
+            ...state,
+            itemsCart: state.itemsCart.filter(item => {
+                return item.sku !== action.sku;
+            })
+        };
+    }
+
     if (action.type === "GET_CART") {
     }
 

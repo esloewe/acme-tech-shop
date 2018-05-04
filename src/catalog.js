@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { catalog, getArticle } from "./actions";
 import "./styles/catalog.css";
-import Article from "./article";
 
 class Catalog extends React.Component {
     constructor(props) {

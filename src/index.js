@@ -11,7 +11,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "redux-logger";
 const store = createStore(
     reducer,
-    composeWithDevTools(applyMiddleware(reduxPromise))
+    composeWithDevTools(applyMiddleware(reduxPromise, logger))
 );
 
 let elem = (

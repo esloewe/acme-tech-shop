@@ -1,0 +1,140 @@
+.cart-page-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cart-items-container {
+    display: grid;
+    grid-template-columns: 100px 150px 80px 80px 150px;
+    font-size: 12px;
+    align-items: end;
+}
+
+.cart-image {
+    width: 80px;
+}
+
+/* payment box ___________________________________________________ */
+.renderer-container-shopping-cart {
+    margin: 0;
+}
+
+.header-title-shopping-cart {
+    font-size: 36px;
+    padding: 30px;
+    text-align: center;
+}
+
+.sub-total {
+    display: grid;
+    grid-template-columns: 180px 120px;
+    grid-template-rows: 30px;
+    align-items: end;
+    width: 400px;
+    margin-bottom: 30px;
+    margin-left: 70px;
+}
+
+.final-total {
+    display: grid;
+    grid-template-columns: 180px 120px;
+    grid-template-rows: 30px;
+    align-items: end;
+    width: 400px;
+    margin-top: 50px;
+    margin-left: 70px;
+}
+
+.total-shopping-cart-container {
+    background-color: #fff;
+    display: grid;
+    margin-left: 180px;
+    width: 450px;
+}
+
+.right-side-text-payment {
+    justify-self: end;
+    font-size: 24px;
+}
+
+.container-button {
+    margin-top: 60px;
+    margin-left: 129px;
+    margin-bottom: 60px;
+}
+
+.middle-text-payment {
+    font-size: 24px;
+}
+
+.total {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.total-amount {
+    font-weight: bold;
+}
+
+.payment-h3 {
+    font-size: 28px;
+}
+
+/* mobile ___________________________________________________ */
+
+@media screen and (max-width: 1000px) {
+    .cart-page-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        font-size: 12px;
+        overflow-x: hidden;
+    }
+
+    .cart-items-container {
+        display: grid;
+        grid-template-columns: 100px 130px 60px 40px;
+        grid-template-rows: 100px 50px;
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .cart-items-container button {
+        font-size: 10px;
+        padding: 10px;
+    }
+    .cart-items-container h1 {
+        margin: 0;
+    }
+
+    .total-shopping-cart-container {
+        background-color: #fff;
+        display: grid;
+        margin-top: 30px;
+        margin-left: 0;
+        width: 320px;
+        font-size: 12px;
+    }
+
+    .total-shopping-cart-container button {
+        font-size: 12px;
+    }
+
+    .sub-total {
+        display: grid;
+        grid-template-columns: 130px 80px;
+        grid-template-rows: 30px;
+        align-items: end;
+        width: 200px;
+        margin-bottom: 30px;
+        margin-left: 70px;
+    }
+
+    .final-total {
+        display: grid;
+        grid-template-columns: 130px 80px;
+        grid-template-rows: 30px;
+        width: 200px;
+        margin-top: 50px;
+        margin-left: 70px;
+    }
+}

@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { getArticle, addToCart, getCart, newCart } from "./actions";
+import { addToCart } from "./actions";
 import "./styles/article.css";
-import { article } from "./article";
 
 class Article extends React.Component {
     constructor() {
@@ -33,7 +32,7 @@ class Article extends React.Component {
         return (
             <div className="article-container">
                 <div className="article-image">
-                    <img src={this.props.getArticle.image} />
+                    <img src={this.props.getArticle.image} alt="" />
                 </div>
                 <div className="article-info">
                     <p>
