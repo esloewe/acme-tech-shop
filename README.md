@@ -1,6 +1,6 @@
 # acme-tech-shop
 
-###How to use this repo
+### How to use this repo
 
 You will need to have node installed in your computer in order for run this application.
 
