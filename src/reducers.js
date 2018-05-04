@@ -41,7 +41,7 @@ export default function reducer(state = initialState || {}, action) {
     if (action.type === "FINAL_CART") {
         state = {
             ...state,
-            finalCart: action.finalCart
+            finalCart: action.finalCart.concat(action.sku, action.quantity)
         };
     }
 

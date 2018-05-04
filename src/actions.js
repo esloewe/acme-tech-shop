@@ -49,14 +49,16 @@ export function removeFromCart(sku) {
     };
 }
 
-export function finalCart(sku, qty) {
-    console.log("final cart in actions", sku, qty);
+export function finalCart(sku, quantity) {
+    console.log("final cart in actions", typeof sku, quantity);
     return axios
-        .put(`http://challenge.monoqi.net/cart${sku}${qty}`)
+        .put(`http://challenge.monoqi.net/cart`)
         .then(resp => {
             return {
                 type: "FINAL_CART",
-                finalCart: resp.data
+                finalCart: resp.data,
+                sku,
+                quantity
             };
         })
         .catch(error => {

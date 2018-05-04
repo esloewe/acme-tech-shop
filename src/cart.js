@@ -12,12 +12,9 @@ class Cart extends React.Component {
     }
 
     dispatchFinalCart() {
-        this.props.dispatch(
-            finalCart(
-                this.props.itemsCart.article,
-                this.props.itemsCart.quantity
-            )
-        );
+        return this.props.itemsCart.map(i => {
+            this.props.dispatch(finalCart(i.article.sku, i.quantity));
+        });
     }
 
     renderItemsCart() {
@@ -59,28 +56,42 @@ class Cart extends React.Component {
 
     render() {
         let total = 0;
+        this.props.itemsCart.forEach(item => {
+            total += parseInt(item.article.price.amount * item.quantity);
+        });
 
         return (
             <div className="cart-page-container">
-                <div>{this.renderItemsCart()}</div>
+                <div>
+                    <h2 className="shopping-cart-h2">Shopping Cart</h2>
+                    {this.renderItemsCart()}
+                </div>
                 <div className="renderer-container-shopping-cart">
                     <div className="total-shopping-cart-container">
                         <h2 className="header-title-shopping-cart">Total</h2>
 
                         <div className="sub-total">
                             <div className="middle-text-payment">
-                                Sub-total {total}
+                                Sub-total{" "}
                             </div>
-                            <div className="right-side-text-payment" />
+                            <div className="right-side-text-payment">
+                                {" "}
+                                {total}{" "}
+                            </div>
                         </div>
+
                         <div className="sub-total">
                             <div className="middle-text-payment">Delivery</div>
                             <div className="right-side-text-payment">free</div>
                         </div>
                         <div className="final-total">
                             <div className="middle-text-payment total">
-                                Total {total}
+                                Total{" "}
                             </div>{" "}
+                            <div className="right-side-text-payment">
+                                {" "}
+                                {total}{" "}
+                            </div>
                             <div className="right-side-text-payment total-amount">
                                 {" "}
                             </div>
