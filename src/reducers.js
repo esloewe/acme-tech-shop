@@ -39,7 +39,6 @@ export default function reducer(state = initialState || {}, action) {
     }
 
     if (action.type === "GET_CART") {
-        console.log("updatecart", action.updateCart);
         state = {
             ...state,
             getCart: action.getCart
@@ -47,10 +46,9 @@ export default function reducer(state = initialState || {}, action) {
     }
 
     if (action.type === "FINAL_CART") {
-        console.log("action final cart in reducer", action.finalCart);
         state = {
             ...state,
-            finalCart: state.updateCart.concat(action.finalCart)
+            finalCart: state.itemsCart.concat(action.finalCart)
         };
     }
 
