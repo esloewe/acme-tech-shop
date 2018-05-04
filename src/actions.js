@@ -50,7 +50,7 @@ export function removeFromCart(sku) {
 }
 
 export function finalCart(sku, quantity) {
-    console.log("final cart in actions", typeof sku, quantity);
+    console.log("final cart in actions", sku, quantity);
     return axios
         .put(`http://challenge.monoqi.net/cart`)
         .then(resp => {

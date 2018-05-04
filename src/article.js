@@ -36,7 +36,10 @@ class Article extends React.Component {
                 </div>
                 <div className="article-info">
                     <p>
-                        {this.props.getArticle.description.trim("<p>", "</p>")}
+                        {this.props.getArticle.description
+                            .replace("<p>", "")
+                            .replace("</p>", "")
+                            .replace(" <p>", "")}
                     </p>
                     <h2>{this.props.getArticle.name}</h2>
 

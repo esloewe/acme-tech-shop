@@ -39,9 +39,15 @@ export default function reducer(state = initialState || {}, action) {
     }
 
     if (action.type === "FINAL_CART") {
+        const lines = [
+            {
+                sku: action.sku,
+                quantity: action.quantity
+            }
+        ];
         state = {
             ...state,
-            finalCart: action.finalCart.concat(action.sku, action.quantity)
+            finalCart: action.finalCart.concat(lines)
         };
     }
 
