@@ -1,15 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeFromCart } from "./actions";
+import { removeFromCart, finalCart } from "./actions";
 import "./styles/cart.css";
 
 class Cart extends React.Component {
     constructor() {
         super();
         this.state = {};
+
+        this.dispatchFinalCart = this.dispatchFinalCart.bind(this);
     }
 
-    componentDidMount() {}
+    dispatchFinalCart() {
+        this.props.dispatch(
+            finalCart(
+                this.props.itemsCart.article,
+                this.props.itemsCart.quantity
+            )
+        );
+    }
 
     renderItemsCart() {
         if (!this.props.itemsCart) {
@@ -78,7 +87,10 @@ class Cart extends React.Component {
                         </div>
                         <div />
                         <div className="container-button">
-                            <button className="buy-now-button">
+                            <button
+                                className="buy-now-button"
+                                onClick={this.dispatchFinalCart}
+                            >
                                 Go to Checkout
                             </button>
                         </div>

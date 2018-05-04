@@ -49,16 +49,17 @@ export function removeFromCart(sku) {
     };
 }
 
-// export function getCart() {
-//     return axios
-//         .get(`http://challenge.monoqi.net/cart`)
-//         .then(resp => {
-//             return {
-//                 type: "GET_CART",
-//                 getCart: resp.data
-//             };
-//         })
-//         .catch(error => {
-//             error;
-//         });
-// }
+export function finalCart(sku, qty) {
+    console.log("final cart in actions", sku, qty);
+    return axios
+        .put(`http://challenge.monoqi.net/cart${sku}${qty}`)
+        .then(resp => {
+            return {
+                type: "FINAL_CART",
+                finalCart: resp.data
+            };
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}

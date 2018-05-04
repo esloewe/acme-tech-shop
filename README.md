@@ -9,7 +9,7 @@ This application was built with `create-react-app`.
 
 You will need to clone this repo or download it to your computer.
 
-In order for the application to run you will need to have node installed in your computer in order for run this application.
+In order for the application to run you will need to have node installed in your computer.
 
 In the project directory, you can run:
 

@@ -33,12 +33,16 @@ export default function reducer(state = initialState || {}, action) {
         state = {
             ...state,
             itemsCart: state.itemsCart.filter(item => {
-                return item.sku !== action.sku;
+                return item.article.sku !== action.sku;
             })
         };
     }
 
-    if (action.type === "GET_CART") {
+    if (action.type === "FINAL_CART") {
+        state = {
+            ...state,
+            finalCart: action.finalCart
+        };
     }
 
     localStorage.setItem("state", JSON.stringify(state));
