@@ -50,9 +50,10 @@ export function removeFromCart(sku) {
 }
 
 export function finalCart(sku, quantity) {
-    console.log("final cart in actions", sku, quantity);
     return axios
-        .put(`http://challenge.monoqi.net/cart`)
+        .put(`http://challenge.monoqi.net/cart`, {
+            "Content-Type": "application/json"
+        })
         .then(resp => {
             return {
                 type: "FINAL_CART",
