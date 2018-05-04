@@ -67,12 +67,10 @@ export function getCart() {
 
 export function finalCart(sku, quantity) {
     let cart = {
-        lines: {
-            sku: sku,
-            quantity: quantity
-        }
+        sku,
+        quantity
     };
-    console.log("cart in final cart action", cart);
+
     return axios
         .put(`http://challenge.monoqi.net/cart${cart}`, {
             "Content-Type": "application/json"
