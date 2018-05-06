@@ -1,11 +1,13 @@
 .cart-page-container {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 62% 38%;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 .cart-items-container {
     display: grid;
-    grid-template-columns: 15% 35% 20% 10% 25%;
+    grid-template-columns: 20% 30% 20% 13% 20%;
     font-size: 18px;
     align-items: end;
     padding: 30px;
@@ -23,13 +25,18 @@
     width: 80px;
 }
 
+.cart-name {
+    font-size: 28px;
+}
+
 .cart-price {
     font-size: 22px;
     font-weight: bold;
 }
 
 .shopping-cart-h2 {
-    font-size: 28px;
+    font-size: 36px;
+    font-weight: bold;
     margin-left: 50px;
     margin-top: 80px;
 }
@@ -110,19 +117,38 @@
         grid-template-columns: 1fr;
         font-size: 12px;
         overflow-x: hidden;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .cart-items-container {
         display: grid;
-        grid-template-columns: 100px 130px 60px 40px;
+        grid-template-columns: 100px 98px 50px 55px;
+        grid-gap: 10px;
         grid-template-rows: 100px 50px;
-        font-size: 12px;
+        font-size: 11px;
         padding: 10px;
         margin-left: 8px;
     }
 
+    .cart-name {
+        font-size: 20px;
+    }
+
+    .cart-price {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .cart-qty {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    /* ___________  */
+
     .cart-items-container button {
-        font-size: 10px;
+        font-size: 11px;
         padding: 10px;
     }
     .cart-items-container h1 {
@@ -130,7 +156,6 @@
     }
 
     .total-shopping-cart-container {
-        background-color: #fff;
         display: grid;
         margin-top: 30px;
         margin-left: 0;

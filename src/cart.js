@@ -77,7 +77,7 @@ class Cart extends React.Component {
                             </div>
                             <div className="right-side-text-payment">
                                 {" "}
-                                {total}{" "}
+                                € {total}{" "}
                             </div>
                         </div>
 
@@ -91,7 +91,7 @@ class Cart extends React.Component {
                             </div>{" "}
                             <div className="right-side-text-payment">
                                 {" "}
-                                {total}{" "}
+                                € {total}{" "}
                             </div>
                             <div className="right-side-text-payment total-amount">
                                 {" "}

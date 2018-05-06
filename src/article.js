@@ -41,10 +41,12 @@ class Article extends React.Component {
                             .replace("</p>", "")
                             .replace(" <p>", "")}
                     </p>
-                    <h2>{this.props.getArticle.name}</h2>
+                    <h2 className="article-name">
+                        {this.props.getArticle.name}
+                    </h2>
 
                     <span className="right-grid-article">
-                        <span>
+                        <span className="article-price">
                             {this.props.getArticle.price.currency}{" "}
                             {this.props.getArticle.price.amount}
                         </span>

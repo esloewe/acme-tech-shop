@@ -13,6 +13,7 @@ export default class App extends React.Component {
             <BrowserRouter>
                 <div>
                     <Nav />
+
                     <Route exact path="/" component={Catalog} />
                     <Route exact path="/article" component={Article} />
                     <Route path="/cart" component={Cart} />

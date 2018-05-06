@@ -8,13 +8,21 @@ export default class Nav extends React.Component {
             <div>
                 <div className="nav">
                     <Link to="/">
-                        <h1 className="logo">Acme</h1>
+                        <h1 className="logo">
+                            Acme <span className="logo-2">tech shop</span>
+                        </h1>
                     </Link>
                 </div>
-                <Link to="/cart">
-                    <i className="fas fa-shopping-cart" />
-                </Link>
+                <div>
+                    <Link to="/cart">
+                        <i className="fas fa-shopping-cart" />
+                    </Link>
+                </div>
             </div>
         );
     }
 }
+
+// <div>
+//     <Link to="/catalog">catalog</Link>
+// </div>
