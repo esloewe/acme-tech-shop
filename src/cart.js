@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeFromCart, finalCart, getCart } from "./actions";
+import { Link } from "react-router-dom";
+import { removeFromCart, finalCart } from "./actions";
 import "./styles/cart.css";
 
 class Cart extends React.Component {
@@ -11,13 +12,9 @@ class Cart extends React.Component {
         this.dispatchFinalCart = this.dispatchFinalCart.bind(this);
     }
 
-    componentDidMount() {
-        this.props.dispatch(getCart());
-    }
-
     dispatchFinalCart() {
         return this.props.itemsCart.map(i => {
-            this.props.dispatch(finalCart(i.article.sku, i.quantity));
+            return this.props.dispatch(finalCart(i.article.sku, i.quantity));
         });
     }
 
@@ -102,12 +99,14 @@ class Cart extends React.Component {
                         </div>
                         <div />
                         <div className="container-button">
-                            <button
-                                className="buy-now-button"
-                                onClick={this.dispatchFinalCart}
-                            >
-                                Go to Checkout
-                            </button>
+                            <Link to="/checkout">
+                                <button
+                                    className="buy-now-button"
+                                    onClick={this.dispatchFinalCart}
+                                >
+                                    Go to Checkout
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

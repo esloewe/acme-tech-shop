@@ -38,19 +38,20 @@ export default function reducer(state = initialState || {}, action) {
         };
     }
 
-    if (action.type === "GET_CART") {
-        state = {
-            ...state,
-            getCart: action.getCart
-        };
-    }
-
     if (action.type === "FINAL_CART") {
+        console.log("reducer final cart", action.finalCart);
         state = {
             ...state,
             finalCart: state.itemsCart.concat(action.finalCart)
         };
     }
+
+    // if (action.type === "GET_CART") {
+    //     state = {
+    //         ...state,
+    //         getCart: action.getCart
+    //     };
+    // }
 
     localStorage.setItem("state", JSON.stringify(state));
 
